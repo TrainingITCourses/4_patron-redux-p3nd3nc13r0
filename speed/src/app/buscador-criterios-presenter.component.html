@@ -1,0 +1,30 @@
+<form (ngSubmit)="buscarClicked(form)" #form="ngForm">
+    <div>
+        <p>
+            Seleccione los criterios de búsqueda:
+        </p>
+        <select (change)="onSelect($event.target.value)">
+            <option *ngFor="let item of criterios" [value]="item.id">{{item.name}}</option>
+        </select>
+        <div *ngIf="criterioSeleccionado.idCriterio == 1">
+            <label>Estado:  </label>
+            <select [ngModel]="idParametro" name="idParametro">
+                <option *ngFor="let item of statuses" [value]="item.id">{{item.name}}</option>
+            </select>
+        </div>
+        <div *ngIf="criterioSeleccionado.idCriterio == 2">
+            <label>Agencias:    </label>
+            <select [ngModel]="idParametro" name="idParametro">
+                <option *ngFor="let item of agencias" [value]="item.id">{{item.name}}</option>
+            </select>
+        </div>
+        <div *ngIf="criterioSeleccionado.idCriterio == 3">
+            <label>Tipo:    </label>
+            <select [ngModel]="idParametro" name="idParametro">
+                <option *ngFor="let item of tipos" [value]="item.id">{{item.name}}</option>
+            </select>
+        </div>
+        <br>
+        <button type="submit" value="Buscar">Buscar</button>
+    </div>
+</form>

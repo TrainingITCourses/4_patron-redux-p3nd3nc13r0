@@ -4,5 +4,5 @@ export interface Status {
   description?: string;
   changed?: string;
   color?: string;
-  icon?: string
+  icon?: string;
 }
